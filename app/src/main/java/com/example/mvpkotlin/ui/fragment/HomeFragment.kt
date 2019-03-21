@@ -1,5 +1,6 @@
 package com.example.mvpkotlin.ui.fragment
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityOptionsCompat
@@ -13,6 +14,7 @@ import com.example.mvpkotlin.mvp.model.bean.HomeBean
 import com.example.mvpkotlin.mvp.presenter.HomePresenter
 import com.example.mvpkotlin.network.exception.ErrorStatus
 import com.example.mvpkotlin.showToast
+import com.example.mvpkotlin.ui.activity.SearchActivity
 import com.example.mvpkotlin.ui.adapter.HomeAdapter
 import com.example.mvpkotlin.utils.StatusBarUtil
 import com.orhanobut.logger.Logger
@@ -139,6 +141,9 @@ class HomeFragment :BaseFragment(),HomeContract.View {
     private fun openSearchActivity(){
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
             val options=activity?.let { ActivityOptionsCompat.makeSceneTransitionAnimation(it, iv_search, iv_search.transitionName) }
+            startActivity(Intent(activity,SearchActivity::class.java),options?.toBundle())
+        }else{
+            startActivity(Intent(activity,SearchActivity::class.java))
         }
     }
 

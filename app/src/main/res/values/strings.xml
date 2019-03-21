@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MvpKotlin</string>
     <string name="title_dynamic_feature">Module Title</string>
+    <string name="search_result_count">-「%1$s」搜索结果共%2$d个-</string>
 </resources>
