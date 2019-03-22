@@ -83,7 +83,7 @@ class ClearEditText @JvmOverloads constructor(context: Context, attrs:AttributeS
     }
 
     override fun onFocusChange(v: View?, hasFocus: Boolean) {
-        this.hasFoucus=hasFoucus
+        this.hasFoucus=hasFocus
         if(hasFocus){
             setClearIconVisible(text.isNotEmpty())
         }else{
