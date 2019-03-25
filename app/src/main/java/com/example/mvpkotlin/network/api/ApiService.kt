@@ -1,5 +1,6 @@
 package com.example.mvpkotlin.network.api
 
+import com.example.mvpkotlin.mvp.model.bean.CategoryBean
 import com.example.mvpkotlin.mvp.model.bean.HomeBean
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -48,6 +49,24 @@ interface ApiService {
      */
     @GET
     fun getIssueData(@Url url: String): Observable<HomeBean.Issue>
+
+    /**
+     * 关注
+     */
+    @GET("v4/tabs/follow")
+    fun getFollowInfo():Observable<HomeBean.Issue>
+
+    /**
+     * 获取分类
+     */
+    @GET("v4/categories")
+    fun getCategory(): Observable<ArrayList<CategoryBean>>
+
+    /**
+     * 获取分类详情List
+     */
+    @GET("v4/categories/videoList?")
+    fun getCategoryDetailList(@Query("id") id: Long): Observable<HomeBean.Issue>
 
 }
 
